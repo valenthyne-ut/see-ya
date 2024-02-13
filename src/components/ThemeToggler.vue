@@ -21,7 +21,8 @@
 		class="w-14 h-14 p-2 rounded-full 
 			transition-colors
 			bg-zinc-800 text-white hover:bg-zinc-700 active:bg-zinc-800
-			dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:active:bg-zinc-900">
+			dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:active:bg-zinc-900
+			hidden sm:block">
 		<span class="bi-sun-fill text-2xl" v-if="themeStore.curTheme === THEMES.LIGHT"></span>
 		<span class="bi-moon-stars-fill text-2xl" v-else></span>
 	</button>
