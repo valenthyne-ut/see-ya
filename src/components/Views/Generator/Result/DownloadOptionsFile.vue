@@ -9,7 +9,7 @@
 
 		const link = document.createElement("a");
 		link.href = blobURL;
-		link.download = generatorStore.curTitle!;
+		link.download = generatorStore.curTitle! + ".seeya";
 		link.click();
 
 		URL.revokeObjectURL(blobURL);
