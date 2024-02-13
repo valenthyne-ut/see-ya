@@ -1,37 +1,37 @@
 <script setup lang="ts">
 	import { MessageItemType } from "@/classes/MessageItem";
-	import { computed, onMounted, ref } from "vue";
 	import DOMPurify from "dompurify";
 	import { parse } from "marked";
+	import { computed, onMounted, ref } from "vue";
 
 	const props = defineProps({
 		type: {
 			type: Number,
 			required: true
 		},
-		text: {
+		value: {
 			type: String,
 			required: true
 		}
 	});
 
 	const computedClass = computed(() => {
-		let itemClass;	
+		let computedItemClass;
 		switch(props.type) {
 		case MessageItemType.LABEL:
-			itemClass = "mt-2 text-center";
+			computedItemClass = "mt-2 text-center";
 			break;
-		case MessageItemType.TEXT:
-			itemClass = "mt-2 text-justify";
+		case MessageItemType.TEXT_FIELD:
+			computedItemClass = "mt-2 text-justify";
 			break;
 		}
-		return itemClass;
+		return computedItemClass;
 	});
 
 	const markdownText = ref<string>("");
 
 	onMounted(async () => {
-		markdownText.value = DOMPurify.sanitize(await parse(props.text));
+		markdownText.value = DOMPurify.sanitize(await parse(props.value));
 	});
 </script>
 

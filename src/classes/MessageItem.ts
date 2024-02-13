@@ -1,14 +1,14 @@
 export enum MessageItemType {
 	LABEL = 0,
-	TEXT = 1
+	TEXT_FIELD = 1
 }
 
 export class MessageItem {
-	readonly type: MessageItemType;
-	text: string;
+	type: MessageItemType;
+	value: string;
 
-	constructor(type: MessageItemType, text?: string) {
+	constructor(type: MessageItemType, value?: string) {
 		this.type = type;
-		this.text = text || "";
+		this.value = value || "";
 	}
 }

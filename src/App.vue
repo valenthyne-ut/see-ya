@@ -1,7 +1,8 @@
 <script setup lang="ts">
+	import { RouterView } from "vue-router";
+	import ColorThemeToggler from "./components/Basic/ColorThemeToggler.vue";
+	import { PREFERRED_THEME_LOCALSTORAGE_KEY_NAME, useThemeStore } from "@/stores/ThemeStore";
 	import { onMounted } from "vue";
-	import ThemeToggler from "./components/ThemeToggler.vue";
-	import { PREFERRED_THEME_LOCALSTORAGE_KEY_NAME, useThemeStore } from "./stores/ThemeStore";
 
 	const themeStore = useThemeStore();
 
@@ -26,10 +27,17 @@
 </script>
 
 <template>
-	<RouterView 
-	class="w-100 h-screen flex justify-center items-center
-		transition-colors duration-500
-		bg-slate-100
-		dark:bg-zinc-700 dark:text-white" />
-	<ThemeToggler class="z-10 absolute right-6 bottom-6" />
+	<div class="
+	w-100 h-screen
+	flex justify-center items-center
+	transition-colors duration-500
+	bg-slate: 100
+	dark:bg-zinc-700 dark:text-white
+	">
+		<RouterView />
+	</div>
+	<ColorThemeToggler class="
+	z-10 absolute
+	right-2 bottom-2
+	"/>
 </template>
