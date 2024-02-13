@@ -3,12 +3,11 @@
 	import { computed, ref } from "vue";
 
 	function randomId(length: number): string {
-		const array = new Uint8Array(length / 2);
-		crypto.getRandomValues(array);
+		const randomArray = new Uint8Array(length / 2);
+		crypto.getRandomValues(randomArray);
 
-		return Array.from(array, (value) => {
-			value.toString(16).padStart(2, "0");
-		}).join("");
+		const parsedArray = Array.from(randomArray);
+		return parsedArray.map(item => item.toString(16).padStart(2, "0")).join("");
 	}
 
 	const props = defineProps({
