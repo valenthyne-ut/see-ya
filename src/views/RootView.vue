@@ -6,7 +6,9 @@
 
 <template>
 	<main>
-		<BaseCard class="w-8/12 sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12">
+		<BaseCard class="w-full h-full justify-center
+			sm:w-7/12 sm:h-fit sm:justify-normal
+			md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12">
 			<h1 class="text-3xl font-bold">see-you</h1>
 			<span class="mt-2 text-sm">An appreciation from Valenthyne.</span>
 
@@ -26,9 +28,9 @@
 					or <strong>a file</strong> which ends in [[FORMAT]].
 				</p><br>
 				<ul class="list-disc ps-4">
-					<li>If you got the file, press the button labelled "the file";</li>
-					<li>If you got the block of text, copy it to your clipboard, and press the button labelled "the text".</li>
-					<li>If you got both, pick and use whichever is more convenient for you.</li>
+					<li>If you've got the file, press the button labelled "the file" and submit it.</li>
+					<li>If you've got the block of text, copy it to your clipboard, and press the button labelled "the text".</li>
+					<li>If you've got both, pick and use whichever is more convenient for you.</li>
 				</ul>
 			</span>
 		</BaseCard>
