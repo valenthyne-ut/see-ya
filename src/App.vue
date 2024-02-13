@@ -11,6 +11,16 @@
 
 		if(themeInStorage) {
 			themeStore.setTheme(Number.parseInt(theme));
+		} else {
+			const prefersColorSchemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+			const preferredColorScheme = prefersColorSchemeQuery.matches ? 1 : 0;
+
+			prefersColorSchemeQuery.addEventListener("change", event => {
+				const newColorScheme = event.matches ? 1 : 0;
+				themeStore.setTheme(newColorScheme);
+			});
+
+			themeStore.setTheme(preferredColorScheme);
 		}
 	});
 </script>
