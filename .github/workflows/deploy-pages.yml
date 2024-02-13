@@ -1,0 +1,38 @@
+name: Deploy to Pages
+on:
+  push:
+    branches:
+      - main
+jobs:
+  cleanup:
+    name: Cleaning up Deployments history
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Delete Deployments history
+        uses: strumwolf/delete-deployment-environment@v3.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: github-pages
+          onlyRemoveDeployments: true
+  deploy-pages:
+    name: Deploying to Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js for use with Actions
+        uses: actions/setup-node@v4
+
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Configure Yarn
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Configure Git
+        run: git config user.name "valenthyne.ut" && git config user.email "valenthyne.ut@gmail.com"
+
+      - name: Deploy
+        run: yarn deploy
