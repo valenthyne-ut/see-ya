@@ -13,9 +13,13 @@
     "deploy": "node ./scripts/deploy-pages.js"
   },
   "dependencies": {
+    "@types/dompurify": "^3.0.5",
+    "@types/marked": "^6.0.0",
     "autoprefixer": "^10.4.17",
     "bootstrap-icons": "^1.11.3",
+    "dompurify": "^3.0.8",
     "execa": "^8.0.1",
+    "marked": "^12.0.0",
     "pinia": "^2.1.7",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",

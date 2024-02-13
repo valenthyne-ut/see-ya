@@ -1,4 +1,3 @@
-import GeneratorView from "@/views/GeneratorView.vue";
 import RootView from "@/views/RootView.vue";
 import { createRouter, createWebHashHistory, type RouteLocationNormalized, type RouteRecordRaw } from "vue-router";
 
@@ -15,7 +14,13 @@ const routes: readonly RouteRecordRaw[] = [
 		path: "/generator",
 		name: "generator",
 		meta: { title: "Generator" },
-		component: GeneratorView
+		component: () => import("@/views/GeneratorView.vue")
+	},
+	{
+		path: "/generator/preview",
+		name: "generator/preview",
+		meta: { title: "Preview" },
+		component: () => import("@/views/GeneratorPreview.vue")
 	}
 ];
 

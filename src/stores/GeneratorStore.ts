@@ -10,6 +10,10 @@ export const useGeneratorStore = defineStore("generator", () => {
 		return _items.value;
 	});
 
+	const curTitle = computed(() => {
+		return _title.value;
+	});
+
 	function addItem(type: GeneratorItemType) {
 		_items.value.push(new GeneratorItem(type));
 	}
@@ -23,5 +27,5 @@ export const useGeneratorStore = defineStore("generator", () => {
 		_items.value = [];
 	}
 
-	return { _items, _title, curItems, addItem, removeItem, clear };
+	return { _items, _title, curItems, curTitle, addItem, removeItem, clear };
 });

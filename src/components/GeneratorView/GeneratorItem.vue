@@ -46,6 +46,6 @@
 		<label :for="computedId" class="bg-slate-400 dark:bg-gray-600 px-2 text-center rounded">
 			Text:
 		</label>
-		<textarea :id="computedId" class="mt-1 p-2 h-20 bg-gray-300 dark:bg-gray-600 rounded resize-none outline-none"></textarea>
+		<textarea :id="computedId" v-model="model" class="mt-1 p-2 h-20 bg-gray-300 dark:bg-gray-600 rounded resize-none outline-none"></textarea>
 	</span>
 </template>
