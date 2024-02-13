@@ -8,7 +8,8 @@
 	<main>
 		<BaseCard class="w-full h-full justify-center
 			sm:w-7/12 sm:h-fit sm:justify-normal
-			md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12">
+			md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12"
+		>
 			<h1 class="text-3xl font-bold">see-you</h1>
 			<span class="mt-2 text-sm">An appreciation from Valenthyne.</span>
 
@@ -33,6 +34,8 @@
 					<li>If you've got both, pick and use whichever is more convenient for you.</li>
 				</ul>
 			</span>
+
+			<RouterLink to="/generator" class="w-full flex justify-end text-blue-600 underline">to generator &gt;</RouterLink>
 		</BaseCard>
 	</main>
 </template>
