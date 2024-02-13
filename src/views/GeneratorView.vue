@@ -4,9 +4,10 @@
 	import AddTextButton from "@/components/GeneratorView/AddTextButton.vue";
 	import TitleField from "@/components/GeneratorView/TitleField.vue";
 	import ItemsPreviewArea from "@/components/GeneratorView/ItemsPreviewArea.vue";
-	import { ref } from "vue";
+	import { useGeneratorStore } from "@/stores/GeneratorStore";
+	import ClearButton from "@/components/GeneratorView/ClearButton.vue";
 
-	const title = ref<string>("");
+	const generatorStore = useGeneratorStore();
 </script>
 
 <template>
@@ -18,10 +19,11 @@
 			<h1 class="text-3xl font-bold">see-you Generator</h1>
 			<span class="mt-2 text-sm">Make your own messages!</span>
 
-			<TitleField v-model="title" class="mt-4"/>
+			<TitleField v-model="generatorStore._title" class="mt-4"/>
 			<div class="w-full mt-1 flex gap-1">
-				<AddLabelButton />
-				<AddTextButton />
+				<AddLabelButton @click="generatorStore.addItem(0)"/>
+				<AddTextButton @click="generatorStore.addItem(1)"/>
+				<ClearButton class="ms-auto" @click="generatorStore.clear()"/>
 			</div>
 
 			<ItemsPreviewArea />
