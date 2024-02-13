@@ -15,6 +15,22 @@
 				<span>or</span>
 				<ClipboardUpload />
 			</div>
+
+			<h2 class="text-xl font-bold w-full mt-6 mb-2 pt-4
+				flex justify-center border-t 
+				border-t-gray-600 dark:border-t-zinc-600">How to use</h2>
+
+			<span class="text-justify">
+				<p>
+					Hiya! You were sent here, probably by Valenthyne, with either a scary-looking <strong>block of text</strong>,
+					or <strong>a file</strong> which ends in [[FORMAT]].
+				</p><br>
+				<ul class="list-disc ps-4">
+					<li>If you got the file, press the button labelled "the file";</li>
+					<li>If you got the block of text, copy it to your clipboard, and press the button labelled "the text".</li>
+					<li>If you got both, pick and use whichever is more convenient for you.</li>
+				</ul>
+			</span>
 		</BaseCard>
 	</main>
 </template>
