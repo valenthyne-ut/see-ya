@@ -11,6 +11,9 @@ router.beforeEach((to, from, next) => {
 	const generatorStore = useGeneratorStore();
 	if(to.name == "generator-result" && generatorStore.curMessage === undefined) {
 		next("/generator");
+	} else if(to.name == "root" && from.name == "generator-result") {
+		generatorStore.clearAll();
+		next();
 	} else {
 		setTitle(to);
 		next();
