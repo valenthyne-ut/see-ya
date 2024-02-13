@@ -1,10 +1,13 @@
+import { Message } from "@/classes/Message";
 import { MessageItem, MessageItemType } from "@/classes/MessageItem";
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 
 export const useGeneratorStore = defineStore("generator", () => {
 	const _items = ref<Array<MessageItem>>([]);
-	const _title = ref<string>();
+	const _title = ref<string>("");
+	const _password = ref<string>("");
+	const _packagedMessage = ref<string>("");
 
 	const curItems = computed(() => {
 		return _items.value;
@@ -12,6 +15,14 @@ export const useGeneratorStore = defineStore("generator", () => {
 
 	const curTitle = computed(() => {
 		return _title.value;
+	});
+
+	const curPassword = computed(() => {
+		return _password.value;
+	});
+
+	const curPackagedMessage = computed(() => {
+		return _packagedMessage.value;
 	});
 
 	function addItem(type: MessageItemType) {
@@ -25,7 +36,18 @@ export const useGeneratorStore = defineStore("generator", () => {
 	function clear() {
 		_title.value = "";
 		_items.value = [];
+		_password.value = "";
 	}
 
-	return { _items, _title, curItems, curTitle, addItem, removeItem, clear };
+	function packageMessage(): boolean {
+		if(!_title.value) { throw "No title set."; }
+		if(!_password.value) { throw "No password set."; }
+		if(_items.value.length == 0) { throw "Message must have atleast one field."; }
+
+		_packagedMessage.value = new Message(_title.value, _items.value).package(_password.value);
+
+		return true;
+	}
+
+	return { _items, _title, _password, _packagedMessage, curItems, curTitle, curPassword, curPackagedMessage, addItem, removeItem, clear, packageMessage };
 });

@@ -21,6 +21,12 @@ const routes: readonly RouteRecordRaw[] = [
 		name: "generator/preview",
 		meta: { title: "Preview" },
 		component: () => import("@/views/GeneratorPreview.vue")
+	},
+	{
+		path: "/generator/result",
+		name: "generator/result",
+		meta: { title: "Your message" },
+		component: () => import("@/views/GeneratorResultView.vue")
 	}
 ];
 

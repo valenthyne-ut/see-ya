@@ -6,8 +6,24 @@
 	import ItemsPreviewArea from "@/components/GeneratorView/ItemsPreviewArea.vue";
 	import { useGeneratorStore } from "@/stores/GeneratorStore";
 	import ClearButton from "@/components/GeneratorView/ClearButton.vue";
+	import PasswordField from "@/components/GeneratorView/PasswordField.vue";
+	import { ref } from "vue";
+	import FinishButton from "@/components/GeneratorView/FinishButton.vue";
+	import router from "@/router";
 
 	const generatorStore = useGeneratorStore();
+
+	const errorText = ref<string>("");
+
+	async function finishCard() {
+		errorText.value = "";
+		try {
+			generatorStore.packageMessage();
+			router.push("/generator/result");
+		} catch(error) {
+			errorText.value = error as string;
+		}
+	}
 </script>
 
 <template>
@@ -20,13 +36,19 @@
 			<span class="mt-2 text-sm">Make your own messages! Supports (some) markdown.</span>
 
 			<TitleField v-model="generatorStore._title" class="mt-4"/>
+			<PasswordField v-model="generatorStore._password" class="mt-1" />
 			<div class="w-full mt-1 flex gap-1">
 				<AddLabelButton @click="generatorStore.addItem(0)"/>
 				<AddTextButton @click="generatorStore.addItem(1)"/>
-				<ClearButton class="ms-auto" @click="generatorStore.clear()"/>
 			</div>
 
 			<ItemsPreviewArea />
+
+			<div class="w-full mt-2 flex justify-between items-center">
+				<span class="text-red-500">{{ errorText }}</span>
+				<ClearButton class="ms-auto" @click="generatorStore.clear(); errorText = ''"/>
+				<FinishButton class="ms-1" @click="finishCard"/>
+			</div>
 
 			<nav class="mt-2 w-full flex justify-between">
 				<RouterLink to="/" class="text-blue-600 underline">&lt; to home</RouterLink>
