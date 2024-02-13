@@ -1,9 +1,9 @@
-import { GeneratorItem, GeneratorItemType } from "@/classes/GeneratorItem";
+import { MessageItem, MessageItemType } from "@/classes/MessageItem";
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 
 export const useGeneratorStore = defineStore("generator", () => {
-	const _items = ref<Array<GeneratorItem>>([]);
+	const _items = ref<Array<MessageItem>>([]);
 	const _title = ref<string>();
 
 	const curItems = computed(() => {
@@ -14,8 +14,8 @@ export const useGeneratorStore = defineStore("generator", () => {
 		return _title.value;
 	});
 
-	function addItem(type: GeneratorItemType) {
-		_items.value.push(new GeneratorItem(type));
+	function addItem(type: MessageItemType) {
+		_items.value.push(new MessageItem(type));
 	}
 
 	function removeItem(index: number) {

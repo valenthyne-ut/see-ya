@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { GeneratorItemType } from "@/classes/GeneratorItem";
+	import { MessageItemType } from "@/classes/MessageItem";
 	import { computed, onMounted, ref } from "vue";
 	import DOMPurify from "dompurify";
 	import { parse } from "marked";
@@ -18,10 +18,10 @@
 	const computedClass = computed(() => {
 		let itemClass;	
 		switch(props.type) {
-		case GeneratorItemType.LABEL:
+		case MessageItemType.LABEL:
 			itemClass = "mt-2 text-center";
 			break;
-		case GeneratorItemType.TEXT:
+		case MessageItemType.TEXT:
 			itemClass = "mt-2 text-justify";
 			break;
 		}

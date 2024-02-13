@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { GeneratorItemType } from "@/classes/GeneratorItem";
+	import { MessageItemType } from "@/classes/MessageItem";
 	import { computed, ref } from "vue";
 
 	function randomId(length: number): string {
@@ -21,10 +21,10 @@
 	const computedId = computed(() => {
 		let result;
 		switch(props.type) {
-		case GeneratorItemType.LABEL:
+		case MessageItemType.LABEL:
 			result = "label-" + id.value;
 			break;
-		case GeneratorItemType.TEXT:
+		case MessageItemType.TEXT:
 			result = "text-" + id.value;
 			break;
 		}
@@ -35,14 +35,14 @@
 </script>
 
 <template>
-	<span v-if="props.type === GeneratorItemType.LABEL" class="w-full flex items-center">
+	<span v-if="props.type === MessageItemType.LABEL" class="w-full flex items-center">
 		<label :for="computedId" class="bg-slate-400 dark:bg-gray-600 px-2 py-1 rounded">
 			Label:
 		</label>
 		<input type="text" :id="computedId" placeholder="your label.." v-model="model" class="ms-2 outline-none bg-transparent">
 	</span>
 
-	<span v-if="props.type === GeneratorItemType.TEXT" class="w-full flex flex-col">
+	<span v-if="props.type === MessageItemType.TEXT" class="w-full flex flex-col">
 		<label :for="computedId" class="bg-slate-400 dark:bg-gray-600 px-2 text-center rounded">
 			Text:
 		</label>

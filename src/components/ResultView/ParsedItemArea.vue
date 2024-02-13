@@ -1,10 +1,10 @@
 <script setup lang="ts">
-	import { GeneratorItem } from "@/classes/GeneratorItem";
+	import { MessageItem } from "@/classes/MessageItem";
 	import ParsedItem from "./ParsedItem.vue";
 
 	const props = defineProps({
 		items: {
-			type: Array<GeneratorItem>,
+			type: Array<MessageItem>,
 			required: true
 		}
 	});
