@@ -8,7 +8,6 @@
 
 	function attemptPackage() {
 		if(generatorStore.packageMessage()) {
-			generatorStore.clearAll();
 			router.push("/generator/result");
 		}
 	}

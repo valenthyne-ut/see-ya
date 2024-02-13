@@ -5,8 +5,8 @@
 
 <template>
 	<div class="flex justify-between items-center">
-		<DownloadOptionsClipboard />
+		<DownloadOptionsClipboard/>
 		<span>or..</span>
-		<DownloadOptionsFile />
+		<DownloadOptionsFile/>
 	</div>
 </template>

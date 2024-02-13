@@ -1,9 +1,24 @@
 <script setup lang="ts">
+	import { useGeneratorStore } from "@/stores/GeneratorStore";
+
+	const generatorStore = useGeneratorStore();
+
+	function saveToFile() {
+		const blob = new Blob([generatorStore.curMessage!], { type: "text/plain" });
+		const blobURL = URL.createObjectURL(blob);
+
+		const link = document.createElement("a");
+		link.href = blobURL;
+		link.download = generatorStore.curTitle!;
+		link.click();
+
+		URL.revokeObjectURL(blobURL);
+	}
 </script>
 
 <template>
 	<div class="flex flex-col items-center">
-		<button type="button" id="fileDownloadButton" class="
+		<button type="button" id="fileDownloadButton" @click="saveToFile" class="
 		w-16 h-16 rounded-lg 
 		flex justify-center items-center
 		cursor-pointer

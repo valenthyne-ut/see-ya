@@ -1,9 +1,16 @@
 <script setup lang="ts">
+	import { useGeneratorStore } from "@/stores/GeneratorStore";
+
+	const generatorStore = useGeneratorStore();
+	
+	async function saveToClipboard() {
+		await navigator.clipboard.writeText(generatorStore.curMessage!);
+	}
 </script>
 
 <template>
 	<div class="flex flex-col items-center">
-		<button type="button" id="clipboardDownloadButton" class="
+		<button type="button" id="clipboardDownloadButton" @click="saveToClipboard" class="
 		w-16 h-16 rounded-lg 
 		flex justify-center items-center
 		cursor-pointer

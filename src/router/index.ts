@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import { routes, setTitle } from "./Routes";
+import { useGeneratorStore } from "@/stores/GeneratorStore";
 
 const router = createRouter({
 	history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -7,8 +8,13 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	setTitle(to);
-	next();
+	const generatorStore = useGeneratorStore();
+	if(to.name == "generator-result" && generatorStore.curMessage === undefined) {
+		next("/generator");
+	} else {
+		setTitle(to);
+		next();
+	}
 });
 
 export default router;
