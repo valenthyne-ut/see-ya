@@ -10,10 +10,11 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-	"deploy": "node ./scripts/deploy-pages.js"
+    "deploy": "node ./scripts/deploy-pages.js"
   },
   "dependencies": {
     "autoprefixer": "^10.4.17",
+    "bootstrap-icons": "^1.11.3",
     "execa": "^8.0.1",
     "pinia": "^2.1.7",
     "postcss": "^8.4.35",
