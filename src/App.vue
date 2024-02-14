@@ -31,13 +31,14 @@
 	w-100 h-screen
 	flex justify-center items-center
 	transition-colors duration-500
-	bg-slate: 100
+	bg-slate-100
 	dark:bg-zinc-700 dark:text-white
 	">
 		<RouterView />
 	</div>
 	<ColorThemeToggler class="
 	z-10 absolute
-	right-2 bottom-2
+	right-2 top-2
+	sm:top-auto sm:bottom-2
 	"/>
 </template>
