@@ -1,4 +1,5 @@
 import { Message } from "@/classes/Message";
+import { AES, enc } from "crypto-js";
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 
@@ -36,6 +37,24 @@ export const useReaderStore = defineStore("reader", () => {
 		error.value = newError;
 	}
 
+	function parseCipherText() {
+		if(!cipherText.value) { throw "Message is required."; }
+		if(!password.value) { throw "Password is required."; }
+
+		const plainText = AES.decrypt(cipherText.value, password.value).toString(enc.Utf8);
+
+		if(plainText.trim().length == 0 || !plainText.startsWith("{")) { 
+			throw "Couldn't parse message. The message you supplied may be corrupt, or you input the wrong password."; 
+		} else {
+			const parsedMessage = Message.fromJSON(plainText);
+			if(!parsedMessage) {
+				throw "Couldn't parse message. The message you supplied may be corrupt, or you input the wrong password.";
+			} else {
+				message.value = parsedMessage;
+			}
+		}
+	}
+
 	function clearAll() {
 		uploadStatus.value = UploadStatus.UNSET;
 		cipherText.value = "";
@@ -61,5 +80,6 @@ export const useReaderStore = defineStore("reader", () => {
 		setPassword,
 		setError,
 		clearAll,
+		parseCipherText
 	};
 });

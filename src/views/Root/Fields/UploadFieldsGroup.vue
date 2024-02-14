@@ -4,7 +4,7 @@
 	import PasswordField from "./PasswordField.vue";
 	import CancelButton from "./CancelButton.vue";
 	import FinishButton from "@/components/Views/Generator/RootView/ActionButtons/FinishButton.vue";
-	import { AES, enc } from "crypto-js";
+	import router from "@/router";
 
 	const readerStore = useReaderStore();
 
@@ -13,9 +13,10 @@
 		else if(!readerStore.curPassword) { readerStore.setError("Password is required."); }
 		else {
 			try {
-				console.log( AES.decrypt(readerStore.curCipherText!, readerStore.curPassword).toString(enc.Utf8) );
-			} catch(err) {
-				console.log(err);
+				readerStore.parseCipherText();
+				router.push("/reader");
+			} catch(error) {
+				readerStore.setError(error as string);
 			}
 		}
 	}
