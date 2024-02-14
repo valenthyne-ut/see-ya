@@ -1,8 +1,7 @@
 <script setup lang="ts">
 	import RootCard from "@/components/Basic/RootCard.vue";
 	import UploadOptionsGroup from "@/components/Views/RootView/UploadOptionsGroup.vue";
-
-
+	import UploadFieldsGroup from "./Fields/UploadFieldsGroup.vue";
 </script>
 
 <template>
@@ -12,17 +11,18 @@
 
 		<UploadOptionsGroup class="mt-4 w-4/6 self-center"/>
 
-		<h2 class="
-		w-full
-		mt-4 mb-2 pt-4
-		text-xl font-bold
-		border-t
-		border-t-gray-600 dark:border-t-zinc-600
-		">
-			How to use
-		</h2>
+		<UploadFieldsGroup />
 
 		<section class="text-justify">
+			<h2 class="
+			w-full
+			mt-4 mb-2 pt-4
+			text-xl font-bold
+			border-t
+			border-t-gray-600 dark:border-t-zinc-600
+			">
+				How to use
+			</h2>
 			<p>
 				Hiya! You were sent here, probably by Valenthyne, with some sort of password and either
 				a scary-looking block of text, or a file which ends in ".seeya".

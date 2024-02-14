@@ -1,5 +1,5 @@
 import { type RouteLocationNormalized, type RouteRecordRaw } from "vue-router";
-import RootView from "@/views/RootView.vue";
+import RootView from "@/views/Root/RootView.vue";
 
 const DEFAULT_ROUTE_TITLE = "see-you";
 
