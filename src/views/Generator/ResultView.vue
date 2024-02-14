@@ -13,7 +13,7 @@
 		<section class="mt-6 text-justify">
 			<h2 class="text-xl font-bold text-center">Your message is ready!</h2><br>
 			<ul class="list-disc ps-4">
-				<li>If you want to share it through the text, press the button to copy to your clipboard.</li>
+				<li>If you want to share it through text, press the button to copy to your clipboard.</li>
 				<li>If you want to share it as a file, press the button to save as a file.</li>
 			</ul><br>
 			<p>

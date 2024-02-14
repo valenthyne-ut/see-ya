@@ -29,7 +29,7 @@
 			</p><br>
 			<p>
 				<ul class="list-disc ps-4">
-					<li>If you've got the text, copy it to your clipboard and press the button to upload via clipboard.</li>
+					<li>If you've got the text, press the button to upload via text.</li>
 					<li>If you've got the file, press the button to upload via file.</li>
 					<li>If you've got both, pick and use whichever is more convenient for you.</li>
 				</ul>

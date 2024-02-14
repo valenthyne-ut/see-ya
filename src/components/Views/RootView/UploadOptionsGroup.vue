@@ -1,11 +1,11 @@
 <script setup lang="ts">
-	import UploadOptionsClipboard from "./UploadOptionsClipboard.vue";
+	import UploadOptionsText from "./UploadOptionsText.vue";
 	import UploadOptionsFile from "./UploadOptionsFile.vue";
 </script>
 
 <template>
 	<div class="flex justify-between items-center">
-		<UploadOptionsClipboard />
+		<UploadOptionsText />
 		<span>or..</span>
 		<UploadOptionsFile />
 	</div>
